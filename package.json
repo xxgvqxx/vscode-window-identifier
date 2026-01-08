@@ -1,0 +1,69 @@
+{
+  "name": "vscode-border",
+  "displayName": "VS Code Border",
+  "description": "Branch-based border and hover colors.",
+  "version": "0.0.1",
+  "publisher": "JakiLabs",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:vscodeBorder.randomizeColor"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscodeBorder.randomizeColor",
+        "title": "VS Code Border: Randomize Color"
+      }
+    ],
+    "configuration": {
+      "title": "VS Code Border",
+      "properties": {
+        "vscodeBorder.primaryColors": {
+          "type": "array",
+          "default": [
+            "#E53935",
+            "#D81B60",
+            "#8E24AA",
+            "#3949AB",
+            "#1E88E5",
+            "#039BE5",
+            "#00897B",
+            "#43A047",
+            "#FDD835",
+            "#FB8C00",
+            "#F4511E"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "List of primary colors to randomize from."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vscode-border-activity",
+          "title": "Border",
+          "icon": "resources/magnify-square.svg"
+        }
+      ]
+    },
+    "views": {
+      "vscode-border-activity": [
+        {
+          "id": "vscode-border-view",
+          "name": "Border"
+        }
+      ]
+    }
+  }
+}

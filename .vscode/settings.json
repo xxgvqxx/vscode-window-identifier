@@ -1,0 +1,16 @@
+{
+    "go.diagnostic.vulncheck": "Off",
+    "workbench.colorCustomizations": {
+        "window.activeBorder": "#F4511E",
+        "window.inactiveBorder": "rgba(244, 81, 30, 0.35)",
+        "activityBar.border": "#F4511E",
+        "sideBar.border": "#F4511E",
+        "panel.border": "#F4511E",
+        "editorGroup.border": "#F4511E",
+        "tab.activeBorderTop": "#F4511E",
+        "tab.hoverBackground": "rgba(244, 81, 30, 0.12)",
+        "tab.hoverBorder": "rgba(244, 81, 30, 0.7)",
+        "tab.unfocusedHoverBackground": "rgba(244, 81, 30, 0.12)",
+        "tab.unfocusedHoverBorder": "rgba(244, 81, 30, 0.7)"
+    }
+}
