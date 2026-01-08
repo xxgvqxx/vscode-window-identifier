@@ -1,16 +1,29 @@
 {
     "go.diagnostic.vulncheck": "Off",
     "workbench.colorCustomizations": {
-        "window.activeBorder": "#D81B60",
-        "window.inactiveBorder": "rgba(216, 27, 96, 0.35)",
-        "activityBar.border": "#D81B60",
-        "sideBar.border": "#D81B60",
-        "panel.border": "#D81B60",
-        "editorGroup.border": "#D81B60",
-        "tab.activeBorderTop": "#D81B60",
-        "tab.hoverBackground": "rgba(216, 27, 96, 0.12)",
-        "tab.hoverBorder": "rgba(216, 27, 96, 0.7)",
-        "tab.unfocusedHoverBackground": "rgba(216, 27, 96, 0.12)",
-        "tab.unfocusedHoverBorder": "rgba(216, 27, 96, 0.7)"
+        "window.activeBorder": "#43A047",
+        "window.inactiveBorder": "#43A047",
+        "activityBar.border": "#43A047",
+        "sideBar.border": "#43A047",
+        "panel.border": "#43A047",
+        "editorGroup.border": "#43A047",
+        "tab.activeBorderTop": "#43A047",
+        "tab.hoverBackground": "rgba(67, 160, 71, 0.12)",
+        "tab.hoverBorder": "rgba(67, 160, 71, 0.7)",
+        "tab.unfocusedHoverBackground": "rgba(67, 160, 71, 0.12)",
+        "tab.unfocusedHoverBorder": "rgba(67, 160, 71, 0.7)",
+        "[Default Dark Modern]": {
+            "window.activeBorder": "#43A047",
+            "window.inactiveBorder": "#43A047",
+            "activityBar.border": "#43A047",
+            "sideBar.border": "#43A047",
+            "panel.border": "#43A047",
+            "editorGroup.border": "#43A047",
+            "tab.activeBorderTop": "#43A047",
+            "tab.hoverBackground": "rgba(67, 160, 71, 0.12)",
+            "tab.hoverBorder": "rgba(67, 160, 71, 0.7)",
+            "tab.unfocusedHoverBackground": "rgba(67, 160, 71, 0.12)",
+            "tab.unfocusedHoverBorder": "rgba(67, 160, 71, 0.7)"
+        }
     }
 }

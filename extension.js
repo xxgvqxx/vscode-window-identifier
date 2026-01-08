@@ -206,14 +206,14 @@ function getPrimaryColors() {
 async function applyColor(color) {
   const workbench = vscode.workspace.getConfiguration('workbench');
   const existing = workbench.get('colorCustomizations');
-  const base =
-    existing && typeof existing === 'object' && !Array.isArray(existing)
-      ? existing
-      : {};
+  const base = isPlainObject(existing) ? existing : {};
+  const theme = workbench.get('colorTheme');
+  const themeKey =
+    typeof theme === 'string' && theme.trim().length ? `[${theme}]` : null;
 
   const hoverBackground = withAlpha(color, 0.12);
   const hoverBorder = withAlpha(color, 0.7);
-  const inactiveBorder = withAlpha(color, 0.35);
+  const inactiveBorder = color;
 
   const overrides = {
     'window.activeBorder': color,
@@ -229,9 +229,18 @@ async function applyColor(color) {
     'tab.unfocusedHoverBorder': hoverBorder
   };
 
+  const merged = { ...base, ...overrides };
+  if (themeKey) {
+    const themeExisting = base[themeKey];
+    merged[themeKey] = {
+      ...(isPlainObject(themeExisting) ? themeExisting : {}),
+      ...overrides
+    };
+  }
+
   await workbench.update(
     'colorCustomizations',
-    { ...base, ...overrides },
+    merged,
     vscode.ConfigurationTarget.Workspace
   );
 }
@@ -276,6 +285,10 @@ function hexToRgb(input) {
     g: (num >> 8) & 255,
     b: num & 255
   };
+}
+
+function isPlainObject(value) {
+  return value && typeof value === 'object' && !Array.isArray(value);
 }
 
 async function getBranch(workspaceFolder) {
