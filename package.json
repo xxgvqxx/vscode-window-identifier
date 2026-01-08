@@ -5,6 +5,10 @@
   "version": "0.0.1",
   "publisher": "JakiLabs",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xxgvqxx/vscode-window-identifier.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
