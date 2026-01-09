@@ -2,7 +2,7 @@
   "name": "vscode-border",
   "displayName": "VS Code Border",
   "description": "Branch-based border and hover colors.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "JakiLabs",
   "license": "MIT",
   "repository": {

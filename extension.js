@@ -89,6 +89,11 @@ function activate(context) {
       randomizeColor(context, state, viewProvider, true)
     )
   );
+  context.subscriptions.push(
+    vscode.commands.registerCommand('vscodeBorder.enableThickBorder', () =>
+      enableThickBorder(context)
+    )
+  );
 
   refreshForCurrentBranch(context, state, viewProvider);
 
@@ -318,6 +323,47 @@ function execGit(args, cwd) {
       resolve(String(stdout).trim());
     });
   });
+}
+
+async function enableThickBorder(context) {
+  const cssPath = context.asAbsolutePath('resources/custom.css');
+  const cssUri = vscode.Uri.file(cssPath).toString();
+  const config = vscode.workspace.getConfiguration();
+  const existingImports = config.get('vscode_custom_css.imports');
+  const imports = Array.isArray(existingImports) ? [...existingImports] : [];
+
+  if (!imports.includes(cssUri)) {
+    imports.push(cssUri);
+  }
+
+  await config.update(
+    'vscode_custom_css.imports',
+    imports,
+    vscode.ConfigurationTarget.Global
+  );
+  await config.update(
+    'vscode_custom_css.policy',
+    true,
+    vscode.ConfigurationTarget.Global
+  );
+
+  const extensionId = 'be5invis.vscode-custom-css';
+  const customCss = vscode.extensions.getExtension(extensionId);
+  if (!customCss) {
+    const action = 'Open Extensions';
+    const choice = await vscode.window.showWarningMessage(
+      'Thick border uses the "Custom CSS and JS Loader" extension. Install it, then run "Reload Custom CSS and JS".',
+      action
+    );
+    if (choice === action) {
+      vscode.commands.executeCommand('workbench.extensions.search', extensionId);
+    }
+    return;
+  }
+
+  vscode.window.showInformationMessage(
+    'Custom CSS path set. Run "Reload Custom CSS and JS" from the Command Palette.'
+  );
 }
 
 function deactivate() {}
