@@ -1,1 +1,4 @@
 .vscode/settings.json
+*.vsix
+._*
+.DS_Store
